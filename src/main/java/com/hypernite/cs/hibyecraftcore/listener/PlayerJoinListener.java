@@ -5,6 +5,7 @@ import com.hypernite.cs.hibyecraftcore.database.DataSourcesManager;
 import com.hypernite.cs.hibyecraftcore.manager.ConfigManager;
 import com.hypernite.cs.hibyecraftcore.ops.DatabaseOperation;
 import com.hypernite.cs.hibyecraftcore.ops.WhitelistOperation;
+import com.hypernite.cs.hibyecraftcore.utils.ColorUtils;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,7 +31,7 @@ public class PlayerJoinListener implements Listener {
         if(isExist) {
             changeGameMode(p, ConfigManager.whitelisted_gamemode);
         } else {
-            p.sendMessage(ConfigManager.prefix + " " + ConfigManager.not_whitelist_notification);
+            p.sendMessage(ColorUtils.replace(ConfigManager.prefix + " " + ConfigManager.not_whitelist_notification));
             changeGameMode(p, ConfigManager.default_gamemode);
         }
     }

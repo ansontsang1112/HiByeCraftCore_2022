@@ -20,19 +20,19 @@ public class DatabaseOperation {
 
     public boolean isExist() {
         String syntax = syntaxGenerator();
-        System.out.println(syntaxGenerator());
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(syntax);
 
             // Check if the player in database
             while(resultSet.next()) {
-                if(resultSet.getString(ConfigManager.table_mc_uuid) == player.getUniqueId().toString().replace("-","")) {
+                // System.out.println(resultSet.getString(ConfigManager.table_mc_uuid) + " " + player.getUniqueId().toString().replace("-",""));
+                if(resultSet.getString(ConfigManager.table_mc_uuid).equalsIgnoreCase(player.getUniqueId().toString().replace("-",""))) {
                     return true;
                 }
             }
-
             return false;
+
         } catch (SQLException e) {
             MessageLogger.adminLog("&c資料庫讀取失敗. 現在轉回白名單模式!");
             // Execute Whitelist Check
@@ -46,7 +46,7 @@ public class DatabaseOperation {
         String glue = "";
         for(int i = 0; i < ConfigManager.accept_state.size(); i++) {
             if(i != ConfigManager.accept_state.size()-1) {
-                glue += ConfigManager.table_player_state + "='" + ConfigManager.accept_state.get(i) + "' AND ";
+                glue += ConfigManager.table_player_state + "='" + ConfigManager.accept_state.get(i) + "' OR ";
             } else {
                 glue += ConfigManager.table_player_state + "='" + ConfigManager.accept_state.get(i) + "'";
             }
