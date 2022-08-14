@@ -1,0 +1,36 @@
+# Configuration of HiByeCraft Core
+
+settings:
+  prefix: "[HBC Core]"
+
+  database:
+    host: ""
+    port: 3306
+    username: ""
+    password: ""
+    database: ""
+
+    table:
+      table: ""
+      mc_uuid_column: ""
+      user_state_column: ""
+
+      accept_state:
+        - "active"
+        - "Staff"
+
+  function:
+    motd: true
+    whitelist: true
+
+motd:
+  text: "Default MOTD"
+
+whitelist:
+  default_gamemode: 2 # 0:Survival, 1:Creative, 2:Adventure
+  whitelisted_gamemode: 0 # 0:Survival, 1:Creative, 2:Adventure
+
+  notification:
+    not_whitelisted: ""
+
+

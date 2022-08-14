@@ -1,0 +1,7 @@
+name: HiByeCraftCore
+version: '${project.version}'
+main: com.hypernite.cs.hibyecraftcore.HiByeCraftCore
+api-version: 1.19
+authors: [ AnsonTsang ]
+description: HyperNitePo. HiByeCraft Core
+website: https://hbc16.hypernite.com
